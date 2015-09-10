@@ -1,7 +1,13 @@
 
+## 2015-09-10
+### Visualization
+- [Vega: A Visualization Grammar](http://vega.github.io/vega/)
+
+
 ## 2015-09-09
 ### UniCode
 - [Javascript parse error on '\u2028' unicode character - Stack Overflow](http://stackoverflow.com/questions/2965293/javascript-parse-error-on-u2028-unicode-character)
+- [c# - How to eliminate ALL line breaks in string? - Stack Overflow](http://stackoverflow.com/questions/6750116/how-to-eliminate-all-line-breaks-in-string)
 
 ### Testing CSS
 - [CSS Stress Testing and Performance Profiling / Andy Edinborough](http://andy.edinborough.org/CSS-Stress-Testing-and-Performance-Profiling)
