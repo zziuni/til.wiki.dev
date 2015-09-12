@@ -1,10 +1,19 @@
+### EcmaScript 2015
+- [ECMAScript 6 Generators](https://carldanley.com/ecmascript-6-generators/)
 
-## 2015-09-10
+### Python
+- [Spoqa Tech Blog | Flask로 만들어 보는 WSGI 어플리케이션](http://spoqa.github.io/2012/01/16/wsgi-and-flask.html)
+
+### Ruby
+- [Ruby Tutorial - Learn Ruby](http://rubylearning.com/) - 괜찮은 루비 레퍼런스.
+- [Metaprogramming Ruby and Rails Antipatterns (Part 1 of 2) - eugenius](http://eewang.github.io/blog/2013/04/29/metaprogramming-ruby-and-antipatterns-in-rails/)
+- [Metaprogramming Ruby: Program Like the Ruby Pros: Paolo Perrotta: 9781934356470: Amazon.com: Books](http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Pros/dp/1934356476)
+
+
 ### Visualization
 - [Vega: A Visualization Grammar](http://vega.github.io/vega/)
 
 
-## 2015-09-09
 ### UniCode
 - [Javascript parse error on '\u2028' unicode character - Stack Overflow](http://stackoverflow.com/questions/2965293/javascript-parse-error-on-u2028-unicode-character)
 - [c# - How to eliminate ALL line breaks in string? - Stack Overflow](http://stackoverflow.com/questions/6750116/how-to-eliminate-all-line-breaks-in-string)
