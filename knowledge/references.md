@@ -1,10 +1,19 @@
-### EcmaScript 2015
+### Theory
+- [Lambda Architecture » λ lambda-architecture.net](http://lambda-architecture.net/)
+
+### Tools
+- [aws/opsworks-cookbooks](https://github.com/aws/opsworks-cookbooks)
+- [Spoqa Tech Blog | Flask로 만들어 보는 WSGI 어플리케이션](http://spoqa.github.io/2012/01/16/wsgi-and-flask.html)
+- [MessagePack: It's like JSON. but fast and small.](http://msgpack.org/)
+
+### Framworks
+- [Spoqa Tech Blog | 원자로를 탐구하는 힙스터를 위한 가이드 (1): React 알아가기](http://spoqa.github.io/2015/09/09/react-guide-01.html)
+
+### Languages
 - [ECMAScript 6 Generators](https://carldanley.com/ecmascript-6-generators/)
 
-### Python
-- [Spoqa Tech Blog | Flask로 만들어 보는 WSGI 어플리케이션](http://spoqa.github.io/2012/01/16/wsgi-and-flask.html)
 
-### Ruby
+#### Ruby
 - [Ruby Tutorial - Learn Ruby](http://rubylearning.com/) - 괜찮은 루비 레퍼런스.
 - [Metaprogramming Ruby and Rails Antipatterns (Part 1 of 2) - eugenius](http://eewang.github.io/blog/2013/04/29/metaprogramming-ruby-and-antipatterns-in-rails/)
 - [Metaprogramming Ruby: Program Like the Ruby Pros: Paolo Perrotta: 9781934356470: Amazon.com: Books](http://www.amazon.com/Metaprogramming-Ruby-Program-Like-Pros/dp/1934356476)

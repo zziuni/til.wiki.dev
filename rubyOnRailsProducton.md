@@ -163,7 +163,7 @@ Rack::Handler::WEBrick.run app
 
 ### docker
 - new relic
-- sentry
+- sentry - [Sentry: Track exceptions with modern error logging for JavaScript, Python, Ruby, Java, and Node.js](https://getsentry.com/welcome/)
 - AWS Cloudwatch
 
 ### Log Management
