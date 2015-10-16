@@ -12,6 +12,7 @@ $http는 $q로 구현된 [deferred/promise API]()에 기반함. 고급사용을 
 ## General usage
 $http는 HTTP request를 생성하기 위한 config 객체 하나를 인자로 받는 함수. 그리고 success, error 메서드 두 개를 가진 [promise]() 객체를 반환.
 
+```js
     $http({method: 'GET', url: '/someUrl'}).
       success(function(data, status, headers, config) {
         // this callback will be called asynchronously
@@ -21,6 +22,7 @@ $http는 HTTP request를 생성하기 위한 config 객체 하나를 인자로 �
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
+```
 
 $http 함수 호출의 반환 객체는 promise. 콜백 등록을 위해서 `then` 메서드 사용도 가능. 이 콜백은 response 객체 하나를 전달인자로 받는 형태.
 
@@ -29,8 +31,10 @@ $http 함수 호출의 반환 객체는 promise. 콜백 등록을 위해서 `the
 ## Shortcut methods
 모든 $http 서비스를 이용한 모든 요청은 url과 HTTP method(GET, POST ...)가 필요하다.  POST/PUT은 점길 데이터도 필수 값.
 
+```js
     $http.get('/someUrl').success(successCallback);
     $http.post('/someUrl', data).success(successCallback);
+```
 
 shortcut method list
 * [$http.get](ng.$http#get)
@@ -82,6 +86,7 @@ interceptor를 이해하기 전에 [$q와 deferred/promise APIs]()를 먼저 이
 
 Interceptor는 \$httpProvider에 \$httpProvider.responseInterceptors로 추가되어 등록되는 service factory 다. 이 factory는 호출되고 dependency와 주입된다. (있다면) 그리고 interceptor를 반환한다. interceptor는 [promise]()를 취해서 원본 혹은 신규 promise를 반환하는 함수다.
 
+```js
     // register the interceptor as a service
     // service로 interceptor를 등록한다.
     $provide.factory('myHttpInterceptor', function($q, dependency1, dependency2) {
@@ -107,6 +112,7 @@ Interceptor는 \$httpProvider에 \$httpProvider.responseInterceptors로 추가�
         // same as above
       }
     });
+```
 
 ## Security Consideration
 보안에 대한 고려

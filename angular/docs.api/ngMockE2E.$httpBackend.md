@@ -12,6 +12,7 @@ end-to-end 테스트나 $http 서비스를 사용하는 애플리케이션을 ba
 
 http backend로 애플리케이션이 돌도록 설정하려면`ngMockE2E`와 니 애플리케이션 모듈에 의존하는 신규 모듈을 만들고 가짜 backend를 정의한다.
 
+```js
     myAppDev = angular.module('myAppDev', ['myApp', 'ngMockE2E']);
     myAppDev.run(function($httpBackend) {
       phones = [{name: 'phone1'}, {name: 'phone2'}];
@@ -26,6 +27,7 @@ http backend로 애플리케이션이 돌도록 설정하려면`ngMockE2E`와 �
       $httpBackend.whenGET(/^\/templates\//).passThrough();
       //...
     });
+```
 
 그리고 이 모듈로 bootstrap실행.
 

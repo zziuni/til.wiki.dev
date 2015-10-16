@@ -3,6 +3,7 @@
 ## Description
 `ng.$exceptionHandler`의 구현을 mock으로 만든다. [ng.$exceptionHandler](ng.$exceptionHandler)는 자신에 전달되는 에러를 rethrow하거나 log한다. 이에 대한 설정정보는 [$exceptionHandlerProvider](ngMock.$exceptionHandlerProvider)를 참고하라.
 
+```js
     describe('$exceptionHandlerProvider', function() {
 
       it('should capture log messages and exceptions', function() {
@@ -23,3 +24,4 @@
         });
       });
     });
+```

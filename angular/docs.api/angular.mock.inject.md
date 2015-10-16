@@ -9,6 +9,7 @@ module도 보자.
 
 inject 메서드를 사용한 일반적인 jasmin 예제.
 
+```js
     angular.module('myApplicationModule', [])
         .value('mode', 'app')
         .value('version', 'v1.0.1');
@@ -29,21 +30,24 @@ inject 메서드를 사용한 일반적인 jasmin 예제.
 
 
       // The inject and module method can also be used inside of the it or beforeEach
-      it('should override a version and test the new version is injected', function() {
-        // module() takes functions or strings (module aliases)
-        module(function($provide) {
-          $provide.value('version', 'overridden'); // override version here
-        });
+        it('should override a version and test the new version is injected', function() {
+          // module() takes functions or strings (module aliases)
+          module(function($provide) {
+            $provide.value('version', 'overridden'); // override version here
+          });
 
-        inject(function(version) {
-          expect(version).toEqual('overridden');
+          inject(function(version) {
+            expect(version).toEqual('overridden');
+          });
         });
-      ));
     });
+```
 
 ## Usage
 
-        angular.mock.inject(fns);
+```js
+    angular.mock.inject(fns);
+```
 
 ### Parameters
 * fns – {...Function} - injector 사용을 주입하는 함수들.

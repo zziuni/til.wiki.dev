@@ -5,6 +5,7 @@
 
 프로바이더는 \$get() 메서드가 있는 객체다. injector가 신규 **서비스의 인스턴스**를 생성하기 위해서 \$get 메서드를 호출한다. 이런 서비스용 프로바이더에는 환경설정을 위한 추가 메서드 추가가 가능.
 
+```js
     function GreetProvider() {
       var salutation = 'Hello';
 
@@ -23,7 +24,7 @@
 
       beforeEach(module(function($provide) {
         $provide.provider('greet', GreetProvider);
-      });
+      }));
 
       it('should greet', inject(function(greet) {
         expect(greet('angular')).toEqual('Hello angular!');
@@ -36,9 +37,9 @@
         inject(function(greet) {
           expect(greet('angular')).toEqual('Ahoj angular!');
         });
-      )};
-
+      });
     });
+```
 
 ## Methods
 

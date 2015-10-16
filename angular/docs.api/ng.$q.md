@@ -9,6 +9,7 @@
 
 에러 핸들링을 다룬다는 관점에서는 deferred/promise APIs는 `tray, catch, throw` 키워드가 동기식 프로그래밍으로 하는 것을 비동기 프로그래밍으로 하는 것이다.
 
+```js
     // 이 예제의 목적은 변수 `$q`와 `scope`이 현재 어휘의 스콥안에서 가능한지 확인하는 것.
     // (이 둘은 인젝트 되거나 전달인자로 넘어올 수 있다. )
 
@@ -36,6 +37,7 @@
     }, function(reason) {
       alert('Failed: ' + reason);
     });
+```
 
 처음에는 복잡도 증가에 공을 들일 가치가 없어보인다. 고롤 때 요걸 보삼. [promise와 deferred APIs 개발을 보장하라](https://github.com/kriskowal/uncommonjs/blob/master/promises/specification.md)
 
@@ -65,11 +67,13 @@ promise 객체의 목적은 deferred task가 완료되었을 때 그 결과에 �
 ## Chaining Promises
 promise의 `then`을 호출하면 신규 파생 promise가 반환횐다.  promise 체인 생성이 가능함.
 
+```js
     promiseB = promiseA.then(function(result) {
       return result + 1;
     });
 
     // promiseB는 promiseA가 resolve되고 바로 resolve됨. B의 값은 promiseA에서 1 증가된 값.
+```
 
 promise가 다른 promise와 해결될 수 있기 때문에 체이징 수 제안은 없음. (추가 해결은 지연될 거야.)
 체인중 어디서든 promie의 해결은 pause/defer할 수 있다. 이를 통해서 **$http response interceptor** 같은 강력한 API 구현이 가능함.
@@ -82,6 +86,7 @@ promise가 다른 promise와 해결될 수 있기 때문에 체이징 수 제안
 
 ### Testing
 
+```js
     it('should simulate promise', inject(function($q, $rootScope) {
       var deferred = $q.defer();
       var promise = deferred.promise;
@@ -100,7 +105,8 @@ promise가 다른 promise와 해결될 수 있기 때문에 체이징 수 제안
       // promise resolution이 $apply()를 사용한 'then' 함수로 전판된다.
       $rootScope.$apply();
       expect(resolvedValue).toEqual(123);
-    });
+    }));
+```
 
 ## Dependencies
 * [$rootScope]()
@@ -122,6 +128,7 @@ promise가 다른 promise와 해결될 수 있기 때문에 체이징 수 제안
 
 deferred/promise는 try/catch/throw 동작와 비슷. reject는 throw와 비슷. promise error 콜백을 통해서 error를 "catch" 하고 현재 promise에서 기인한 promise로 error를 보내길 원한다면, `reject`를 통해서 생성된 rejection 반환으로 error를 "rethrow" 여야 한다.
 
+```js
     promiseB = promiseA.then(function(result) {
       // success: 어떤 일을 하고 result와 함께 promiseB를 해결한다.
       return result;
@@ -135,6 +142,7 @@ deferred/promise는 try/catch/throw 동작와 비슷. reject는 throw와 비슷.
       }
       return $q.reject(reason);
     });
+```
 
 ### when(value)
 value나 $q promise에서 3rd party then-able promise일 수 있는 객체를 wrapping함. promise일 수도 있고 아닐 수도 있는 객체를 다룰 때 유용함. 신뢰할 수 없는 출처에서 promise가 왔을 때.

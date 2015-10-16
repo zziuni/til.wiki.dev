@@ -4,15 +4,18 @@
 
 [provider](AUTO.$provide)로 지정한 인스턴스 객체를 찾고, type들을 인스턴스화 하고, 메서드들을 실행하고, 모듈을 로드하는데 사용. 다음은 항상 참. n
 
+```js
     var $injector = angular.injector();
     expect($injector.get('$injector')).toBe($injector);
     expect($injector.invoke(function($injector){
       return $injector;
-    }).toBe($injector);
+    })).toBe($injector);
+```
 
 ### Injection Function Annotation
 js는 annotation이 없고, DI에는 annotation이 필요함. 주입인자와 함수를 annotate 하는 방법들. 모두 같음. 아래는 그 설명
 
+```js
     // inferred (only works if code not minified/obfuscated)
     $injector.invoke(function(serviceA){});
 
@@ -23,6 +26,7 @@ js는 annotation이 없고, DI에는 annotation이 필요함. 주입인자와 �
 
     // inline
     $injector.invoke(['serviceA', function(serviceA){}]);
+```
 
 #### inference
 함수에서 toString()를 호출하면 함수 정의가 문자열로. 여기서 인자를 유추해냄. 그래서 minification을 하면 안되는거. annotations이 필요.
@@ -41,6 +45,7 @@ js는 annotation이 없고, DI에는 annotation이 필요함. 주입인자와 �
 **argument names**
 함수 전달인자에서 depedencies를 추출하기 위한 목적. toString()으로 함수를 문자열로 변환해서 전달인자 명을 추출.
 
+```js
     // Given
     function MyController($scope, $route) {
       // ...
@@ -48,6 +53,7 @@ js는 annotation이 없고, DI에는 annotation이 필요함. 주입인자와 �
 
     // Then
     expect(injector.annotate(MyController)).toEqual(['$scope', '$route']);
+```
 
 minificatoin하면 이 메서드는 작동안함. 이런 이유로 다음과 같은 annotation 전략이 필요함.
 
@@ -55,6 +61,7 @@ minificatoin하면 이 메서드는 작동안함. 이런 이유로 다음과 같
 
 함수가 $inject 프로퍼티가 있고 그 값이 문자열로 된 배열이면, 함수에 주입될 서비스명들로 본다.
 
+```js
     // Given
     var MyController = function(obfuscatedScope, obfuscatedRoute) {
       // ...
@@ -64,10 +71,12 @@ minificatoin하면 이 메서드는 작동안함. 이런 이유로 다음과 같
 
     // Then
     expect(injector.annotate(MyController)).toEqual(['$scope', '$route']);
+```
 
 **The array notation**
 인라인 주입 함수와 바람직한 경우와 $inject 프로퍼티가 불편할 때.
 
+```js
     // We wish to write this (not minification / obfuscation safe)
     injector.invoke(function($compile, $rootScope) {
       // ...
@@ -89,6 +98,7 @@ minificatoin하면 이 메서드는 작동안함. 이런 이유로 다음과 같
     expect(injector.annotate(
        ['$compile', '$rootScope', function(obfus_$compile, obfus_$rootScope) {}])
      ).toEqual(['$compile', '$rootScope']);
+```
 
 **Parameters**
 

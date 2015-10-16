@@ -5,6 +5,7 @@ root scope은 [$injector]()에서 [$rootScope]()키를 사용해서 가져올 �
 
 scope을 다루는 방법을 보여주는 샘플.
 
+```js
     angular.injector(['ng']).invoke(function($rootScope) {
        var scope = $rootScope.$new();
        scope.salutation = 'Hello';
@@ -24,10 +25,12 @@ scope을 다루는 방법을 보여주는 샘플.
        scope.$digest(); // fire all  the watches
        expect(scope.greeting).toEqual('Hello Misko!');
     });
+```
 
 ### Inheritance
 scope은 상속가능. 예제.
 
+```js
     var parent = $rootScope;
     var child = parent.$new();
 
@@ -38,10 +41,13 @@ scope은 상속가능. 예제.
     child.salutation = "Welcome";
     expect(child.salutation).toEqual('Welcome');
     expect(parent.salutation).toEqual('Hello');
+```
 
 ## Usage
 
+```js
     Scope([providers][, instanceCache]);
+```
 
 ### Parameters
 * *providers(optional)* - {object.<string, function()>=} - 해당 scope에서 지원되야할 service factory를 매핑. 기본값은 [ng]()
@@ -58,6 +64,7 @@ scope은 상속가능. 예제.
 
 **Pseudo-Code of \$apply()**
 
+```js
     function $apply(expr) {
       try {
         return $eval(expr);
@@ -67,6 +74,7 @@ scope은 상속가능. 예제.
         $root.$digest();
       }
     }
+```
 
 Scope의 \$apply() 메서드는 다음 과정을 통해서 이행한다.
 
@@ -114,6 +122,7 @@ Scope의 \$apply() 메서드는 다음 과정을 통해서 이행한다.
 
 **Example**
 
+```js
     var scope = ...;
     scope.name = 'misko';
     scope.counter = 0;
@@ -131,6 +140,7 @@ Scope의 \$apply() 메서드는 다음 과정을 통해서 이행한다.
     scope.name = 'adam';
     scope.$digest();
     expect(scope.counter).toEqual(1);
+```
 
 ### \$emit(name, args)
 등록된 [ng.\$rootScope.Scope#$on]() 리스너에 알리기 위해서 scope 계층구조를 타고 올라가면서 이벤트 name을 전달한다.
@@ -151,12 +161,14 @@ Scope의 \$apply() 메서드는 다음 과정을 통해서 이행한다.
 
 **Example**
 
+```js
     var scope = ng.$rootScope.Scope();
     scope.a = 1;
     scope.b = 2;
 
     expect(scope.$eval('a+b')).toEqual(3);
     expect(scope.$eval(function(scope){ return scope.a + scope.b; })).toEqual(3);
+```
 
 **Parameters**
 * expression(optional) - {(string | function() )=} - 평가할 angular expression
@@ -224,6 +236,7 @@ scope에 watcher가 등록된 후에, listener 함수는 watcher 생성을 위�
 
 **Example**
 
+```js
     // let's assume that scope was dependency injected as the $rootScope
     var scope = $rootScope;
     scope.name = 'misko';
@@ -240,6 +253,7 @@ scope에 watcher가 등록된 후에, listener 함수는 watcher 생성을 위�
     scope.name = 'adam';
     scope.$digest();
     expect(scope.counter).toEqual(1);
+```
 
 **Parameters**
 

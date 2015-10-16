@@ -11,6 +11,7 @@ template function은 view 생성에 사용되거나 대부분 [ng-repeater]()에
 
 ### Source
 
+```html
     //## index.html
     <!doctype html>
     <html ng-app="compile">
@@ -26,7 +27,9 @@ template function은 view 생성에 사용되거나 대부분 [ng-repeater]()에
         </div>
       </body>
     </html>
+```
 
+```js
     // ## script.js
     // declare a new module, and inject the $compileProvider
     angular.module('compile', [], function($compileProvider) {
@@ -68,12 +71,15 @@ template function은 view 생성에 사용되거나 대부분 [ng-repeater]()에
       input('html').enter('{{name}}!');
       expect(element('div[compile]').text()).toBe('Angular!');
     });
+```
 
 ### Demo
 
 ## Usage
 
+```js
     $compile(element, transclude, maxPriority);
+```
 
 ### Parameters
 * element - { string | DOMElement } - template function으로 만들 HTML, Element 문자열. (이게 template)
@@ -93,12 +99,13 @@ link function은 template의 element를 반환한다. 넘어온 원본 element�
 
 * link function 실행시 template 클론을 요구하지 않는다면 (cloneAttachFn인자가 없다면) , 컴파일러로 보내기전에 DOM element를 생성해서 그 참조를 유지한다. (반환한다.)
 
-
+```js
     var element = $compile('<p>{{total}}</p>')(scope);
-
+```
 
 * Element를 클론하길 원하면, 원래 예제를 참조하는 뷰는 클론이 아닌 그러나 클론된 원본 template?? 여기선 cloneAttachFn를 통해서 클론에 접근할 수 있다.
 
+```js
     var templateHTML = angular.element('<p>{{total}}</p>'),
         scope = ....;
 
@@ -107,7 +114,7 @@ link function은 template의 element를 반환한다. 넘어온 원본 element�
     });
 
     //now we have reference to the cloned DOM via `clone`
-
+```
 
 좀더 자세한건 [Angular HTML Compiler](../guide/compiler)를 참조
 

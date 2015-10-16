@@ -3,8 +3,9 @@
 > [원본](http://docs.angularjs.org/api/ng.$parse)
 
 ## Description
-Angular [expression](../guide/expression)를 함수로 변환한다.
+Angular [expression](angular/docs.guide/expression)를 함수로 변환한다.
 
+```js
     var getter = $parse('user.name');
     var setter = getter.assign;
     var context = {user:{name:'angular'}};
@@ -14,9 +15,13 @@ Angular [expression](../guide/expression)를 함수로 변환한다.
     setter(context, 'newValue');
     expect(context.user.name).toEqual('newValue');
     expect(getter(context, locals)).toEqual('local');
+```
 
 ## Usage
+
+```js
     $parse( expression );
+```
 
 ### Parameters
 * expression - {string} - 컴파일할 표현식 문자

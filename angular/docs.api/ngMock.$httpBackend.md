@@ -40,6 +40,7 @@ request expection이 응답을 지정하지 않으면 알고리즘이 backend de
 
 ## Unit testing with mock $httpBackend
 
+```js
     // controller
     function MyController($scope, $http) {
       $http.get('/auth.py').success(function(data) {
@@ -107,6 +108,7 @@ request expection이 응답을 지정하지 않으면 알고리즘이 backend de
       controller.saveMessage('whatever');
       $httpBackend.flush();
     });
+```
 
 ## Methods
 * expect(method, url, data, headers)

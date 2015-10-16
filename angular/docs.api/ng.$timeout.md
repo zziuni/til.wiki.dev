@@ -15,7 +15,10 @@
 * [$browser](ng.$browser)
 
 ## Usage
+
+```js
     $timeout(fn[, delay[, invokeApply]]);
+```
 
 ### Parameters
 * fn - {function()} - 일정시간후 실행할 함수.
