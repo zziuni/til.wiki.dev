@@ -4,7 +4,7 @@ Same Origin Policy를 해결하기 위한 표준. [CORS](http://www.w3.org/TR/co
 
 ## How to use
 
-server-side에서 Response Header를 추가하면 된다.
+server-side에서 header만 추가하면 된다.
 
 ```
      Access-Control-Allow-Origin:*
@@ -12,7 +12,7 @@ server-side에서 Response Header를 추가하면 된다.
 
 ### withCredentials
 
-인증처리를위한 옵션 [CORS tutorials](http://www.html5rocks.com/en/tutorials/cors/#toc-making-a-cors-request)
+인증처리를위한 옵션 [html5Rocks CORS Tutorial](http://www.html5rocks.com/en/tutorials/cors)
 
 ## reference
 * [W3C's CORS](http://www.w3.org/TR/cors/)
