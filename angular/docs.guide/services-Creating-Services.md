@@ -8,15 +8,18 @@ service를 등록하려면 모듈이 필요하다. Module API를 쓰거나 modul
 
 angular.Module API
 
+```js
     var myModule = angular.module('myModule', []);
     myModule.factory('serviceId', function() {
       var shinyNewServiceInstance;
       //factory function body that constructs shinyNewServiceInstance
       return shinyNewServiceInstance;
     });
+```
 
 $provide service 사용.
 
+```js
     angular.module('myModule', [], function($provide) {
       $provide.factory('serviceId', function() {
         var shinyNewServiceInstance;
@@ -24,6 +27,7 @@ $provide service 사용.
         return shinyNewServiceInstance;
       });
     });
+```
 
 주의 : 호출할 때 인스턴스를 생성할  factory 함수를 등록해야지 service 인스턴스를 등록하면 안된다.
 
@@ -33,6 +37,7 @@ $provide service 사용.
 
 간단한 예제. 이 service는 $window service를 주입 받는다. (faction 함수에서 전달인자로 전해진) 예제 servcie는 근야 함수.어떤 함수냐 하면 노티를 저장했다가 3개가 되면 window alert으로 모두 노티 날리는 서비스.
 
+```js
     angular.module('myModule', [], function($provide) {
       $provide.factory('notify', ['$window', function(win) {
         var msgs = [];
@@ -45,6 +50,7 @@ $provide service 사용.
         };
       }]);
     });
+```
 
 ## Instantiating Angular Services
 service의 인스턴스 화는 느리게 된다. 이말의 의미는 service 인스턴스나 애플리케이션 컴포넌트로가 필요할 때 생성된다. (미리 생성되지 않는다는 말). 다르말로는 angular는 개발자가 직접 요청하거나 애플리케이션이 간접적으로 요청하기 전까지 service 인스턴스를 만들지 않는다.

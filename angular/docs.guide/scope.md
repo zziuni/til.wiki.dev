@@ -22,6 +22,7 @@ controller와 directive는 scope를 참조하지만 상호간에는 참조하지
 
 ## Source
 
+```html
     // index.html
     <!doctype html>
     <html ng-app>
@@ -39,7 +40,9 @@ controller와 directive는 scope를 참조하지만 상호간에는 참조하지
         </div>
       </body>
     </html>
+```
 
+```js
     // script.js
     function MyController($scope) {
       $scope.username = 'World';
@@ -48,6 +51,7 @@ controller와 directive는 scope를 참조하지만 상호간에는 참조하지
         $scope.greeting = 'Hello ' + $scope.username + '!';
       };
     }
+```
 
 MyController는 username에 World를 할당하고, input에 알린다. 그래서 사전 랜더링으로 출력됨. 컨트롤러가 스콥으로 데이터를 쓰는 방법을 한 예제.
 
@@ -62,6 +66,7 @@ scope과 그 파라미터를 뷰를 랜터링하는데 사용하는 데이터로
 
 view의 테스트 가능한 과점에서 콘트롤러와 뷰의 분리는 설명가능함. 우린 구체적인 랜터링으로 발생하는 산만함 없이 동작을 테스트 할 수 있다.
 
+```js
     it('should say hello', function() {
       var scopeMock = {};
       var cntl = new MyController(scopeMock);
@@ -74,6 +79,7 @@ view의 테스트 가능한 과점에서 콘트롤러와 뷰의 분리는 설명
       scopeMock.sayHello();
       expect(scopeMock.greeting).toEqual('Hello angular!');
     });
+```
 
 ### Scope Hirerarchies
 Angualr App 별로 [root scope](../api/ng.$rootScope)은 명확하게 하나지만 자식 scope은 여러개.
@@ -87,6 +93,7 @@ Angualr는 {{suername}}를 평가할 때, 먼저 username 프로퍼티에 대해
 
 ### Source
 
+```html
     // index.html
     <!doctype html>
     <html ng-app>
@@ -108,13 +115,17 @@ Angualr는 {{suername}}를 평가할 때, 먼저 username 프로퍼티에 대해
         </div>
       </body>
     </html>
+```
 
+```css
     // style.css
     /* remove .doc-example-live in jsfiddle */
     .doc-example-live .ng-scope {
       border: 1px dashed red;
     }
+```
 
+```js
     // scriprt.js
     function EmployeeController($scope) {
       $scope.department = 'Engineering';
@@ -126,6 +137,7 @@ Angualr는 {{suername}}를 평가할 때, 먼저 username 프로퍼티에 대해
         ]
       };
     }
+```
 
 ### Demo
 Anguar는 scope이 추가 된 곳에 `ng-scope`이라는 CSS Class를 자동으로 삽입한다. 위 데모는 거기다 빨간 점선을 추가했다. 자식 scope는 repeater가 {{employee.name}} 표현식을 평가하기 때문에 필요하다. 하지만 표현식이 평가되는 scope의 위치에 따라서 결과가 다른다. root scope에서 프로토타이핑 상속인 {{department}} 프로퍼티 평가는 유사함. scope에서 department 프로퍼티가 정의 된 곳에만 scope이 있다.(repeater 안에 있는 {{department}} 프로퍼티는 프로포타이핑 상속을 통해 제공되는 root Scope의 department 프로퍼티티라는 말이다. )
@@ -146,6 +158,7 @@ Scope은 DOM 과 유사하게 이벤트가 전파된다. 자식 scope에는 이�
 
 ### Srouce
 
+```html
     //index.html
     <!doctype html>
     <html ng-app>
@@ -172,7 +185,9 @@ Scope은 DOM 과 유사하게 이벤트가 전파된다. 자식 scope에는 이�
         </div>
       </body>
     </html>
+```
 
+```js
     //script.js
     function EventController($scope) {
       $scope.count = 0;
@@ -180,6 +195,7 @@ Scope은 DOM 과 유사하게 이벤트가 전파된다. 자식 scope에는 이�
         $scope.count++;
       });
     }
+```
 
 ### Demo
 

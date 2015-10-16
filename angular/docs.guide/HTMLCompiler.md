@@ -40,6 +40,7 @@ directive는 compile가 DOM에서 이걸 찾았을 때 실행할 **함수**다. 
 
 ### Source
 
+```js
     angular.module('drag', []).
       directive('draggable', function($document) {
         var startX=0, startY=0, x = 0, y = 0;
@@ -72,7 +73,7 @@ directive는 compile가 DOM에서 이걸 찾았을 때 실행할 **함수**다. 
           }
         }
       });
-
+```
 
 ### Demo
 
