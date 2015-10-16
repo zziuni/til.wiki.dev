@@ -1,4 +1,4 @@
-업무용 에디터를 만들고 로그.
+Tokenization이 필요한 DSL 전용 에디터를 [CodeMirror](https://codemirror.net/index.html)로 만들기.
 
 ##CodeMirro.defineMode(name, modeFn)
 
