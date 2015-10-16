@@ -1,4 +1,4 @@
-# Cross-Origin resource sharing
+# Cross-Origin Resource Sharing
 
 Same Origin Policy를 해결하기 위한 표준. [CORS](http://www.w3.org/TR/cors/)라고 함.
 
