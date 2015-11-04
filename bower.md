@@ -72,6 +72,27 @@ front-side를 위한 javascritp packget managermant tool. [Official Repo](https:
     $ bower install [--save | --save-dev] <package name>#<version>
 ```
 
+`<package name>`에 올 수 있는 값.
+
+- `<package>`
+- `<package>#<version>`
+- `<name>=<package>#<version>`
+
+`<package>`에 가능한 값.
+
+
+- Registered package name `jquery`, `normalize.css`
+- Git endpoint  `https://github.com/user/package.git`, `git@github.com:user/package.git`
+- Git endpoint without .git `git+https://github.com/user/package`, `git+ssh://git@github.com/user/package`
+- Local folder  `my/local/folder/`
+- Public Subversion endpoint  `svn+http://package.googlecode.com/svn/`
+- Private Subversion endpoint `svn+ssh://package.googlecode.com/svn/`, `svn+https://package.googlecode.com/svn/`
+- Shorthand (defaults to GitHub)  `user/package`
+- URL `http://example.com/script.js`, `http://example.com/style.css`, `http://example.com/package.zip` (contents will be extracted), `http://example.com/package.tar` (contents will be extracted)
+
+
+더 자세한건 [bower api#install](http://bower.io/docs/api/#install)
+
 #### install dependencies packages
 
 ```bash
